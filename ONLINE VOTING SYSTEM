@@ -1,0 +1,30 @@
+<!-- index.html --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Voting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body><div class="container">
+  <h2>Online Voting</h2>
+  <p>Select your candidate:</p><button onclick="vote('Candidate A')">Candidate A</button> <button onclick="vote('Candidate B')">Candidate B</button> <button onclick="vote('Candidate C')">Candidate C</button>
+
+  <div class="result">
+    <h3>Results:</h3>
+    <p id="result"></p>
+  </div>
+</div><script src="script.js"></script></body>
+</html>/* style.css */ body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; }
+
+.container { background: white; padding: 20px; margin: 50px auto; width: 300px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+
+button { margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; background: #4CAF50; color: white; cursor: pointer; }
+
+button:hover { background: #45a049; }
+
+.result { margin-top: 20px; }
+
+// script.js let votes = { "Candidate A": 0, "Candidate B": 0, "Candidate C": 0 };
+
+function vote(candidate) { votes[candidate]++; displayResults(); }
+
+function displayResults() { let output = ""; for (let candidate in votes) { output += candidate + ": " + votes[candidate] + " votes<br>"; } document.getElementById("result").innerHTML = output; }
